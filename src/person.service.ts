@@ -11,16 +11,24 @@ export class PersonService {
   ) {}
 
   async findAll(): Promise<Person[]> {
-    return this.personRepository.find();
+    const people = await this.personRepository.find();
+    console.log('Retrieved people:', people); // Ajoute ceci pour voir ce qui est récupéré
+    return people;
   }
+
+
 
   async findOne(id: number): Promise<Person> {
     return this.personRepository.findOneBy({ id });
   }
 
+
   async create(person: Person): Promise<Person> {
-    return this.personRepository.save(person);
-  }
+      const newPerson = this.personRepository.create(person);
+      return this.personRepository.save(newPerson);
+    }
+
+
 
   async update(id: number, person: Partial<Person>): Promise<Person> {
     await this.personRepository.update(id, person);

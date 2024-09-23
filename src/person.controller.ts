@@ -7,9 +7,10 @@ export class PersonController {
   constructor(private readonly personService: PersonService) {}
 
   @Get()
-  async findAll(): Promise<Person[]> {
-    return this.personService.findAll();
-  }
+   async findAll(): Promise<Person[]> {
+     return this.personService.findAll();
+   }
+
 
   @Get(':id')
   async findOne(@Param('id') id: number): Promise<Person> {
