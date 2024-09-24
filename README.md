@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pet Management API
 
-## Getting Started
+## Description
 
-First, run the development server:
+Pet Management API est une application backend développée avec NestJS et TypeORM, permettant de gérer les informations sur les propriétaires d'animaux et leurs animaux de compagnie. 
+Cette API permet de créer, lire, mettre à jour et supprimer (CRUD) des données relatives aux personnes et aux animaux.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Table des matières
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [Caractéristiques](#caractéristiques)
+- [Technologies utilisées](#technologies-utilisées)
+- [Prérequis](#prérequis)
+- [Installation](#installation)
+- [Configuration de l'environnement](#configuration-de-lenvironnement)
+- [Utilisation](#utilisation)
+- [Endpoints API](#endpoints-api)
+- [Contributions](#contributions)
+- [Licence](#licence)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Caractéristiques
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Gestion des propriétaires d'animaux (personnes)
+- Gestion des animaux de compagnie
+- Fonctionnalités CRUD pour les personnes et les animaux
+- Utilisation de TypeORM pour la gestion de la base de données
 
-## Learn More
+## Technologies utilisées
 
-To learn more about Next.js, take a look at the following resources:
+- [NestJS](https://nestjs.com/) - Framework Node.js
+- [TypeORM](https://typeorm.io/) - ORM pour TypeScript et JavaScript
+- [MySQL](https://www.mysql.com/) - Système de gestion de base de données relationnelle
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Prérequis
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- [Node.js](https://nodejs.org/) (version 14 ou supérieure)
+- [MySQL](https://www.mysql.com/) installé et en cours d'exécution
+- [Git](https://git-scm.com/) pour cloner le dépôt
 
-## Deploy on Vercel
+## Installation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Clonez le dépôt :**
+   ```bash
+   git clone https://github.com/oussama-dghoughi/Pet-_Management_-API.git
+   cd Pet-_Management_-API
+2. Installez les dépendances :
+   -> npm install
+3. Configurez la base de données :
+      . Créez une base de données MySQL pour l'application.
+      . Modifiez le fichier ormconfig.json (ou app.module.ts selon votre configuration) pour ajouter vos informations de connexion MySQL.
+4. Configuration de l'environnement
+  Assurez-vous de créer un fichier .env à la racine de votre projet pour stocker vos variables d'environnement.
+  Voici un exemple de contenu :
+    DATABASE_HOST=localhost
+  DATABASE_PORT=3306
+  DATABASE_USERNAME=your_username
+  DATABASE_PASSWORD=your_password
+  DATABASE_NAME=your_database_name
+5. Utilisation
+  Démarrer le serveur :
+      ->En mode développement :
+        bash:
+                npm run dev
+      ->En mode production :
+        :bash
+              npm run start
+6. Accéder à l'API :
+        L'API sera disponible à l'adresse http://localhost:3000.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+******Endpoints API******
+      ***Personnes****
+GET /people - Récupérer tous les propriétaires
+GET /people/:id - Récupérer un propriétaire par ID
+POST /people - Créer un nouveau propriétaire
+PUT /people/:id - Mettre à jour un propriétaire existant
+DELETE /people/:id - Supprimer un propriétaire
+
+    ***Animaux**
+GET /animal - Récupérer tous les animaux
+GET /animal/:id - Récupérer un animal par ID
+POST /animal - Créer un nouvel animal
+PUT /animal/:id - Mettre à jour un animal existant
+DELETE /animal/:id - Supprimer un animal
+
+
