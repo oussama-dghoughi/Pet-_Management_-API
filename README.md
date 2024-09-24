@@ -1,85 +1,84 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
-
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+# Pet Management API
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Pet Management API est une application backend développée avec NestJS et TypeORM, permettant de gérer les informations sur les propriétaires d'animaux et leurs animaux de compagnie. 
+Cette API permet de créer, lire, mettre à jour et supprimer (CRUD) des données relatives aux personnes et aux animaux.
 
-## Project setup
+## Table des matières
 
-```bash
-$ npm install
-```
+- [Caractéristiques](#caractéristiques)
+- [Technologies utilisées](#technologies-utilisées)
+- [Prérequis](#prérequis)
+- [Installation](#installation)
+- [Configuration de l'environnement](#configuration-de-lenvironnement)
+- [Utilisation](#utilisation)
+- [Endpoints API](#endpoints-api)
+- [Contributions](#contributions)
+- [Licence](#licence)
 
-## Compile and run the project
+## Caractéristiques
 
-```bash
-# development
-$ npm run start
+- Gestion des propriétaires d'animaux (personnes)
+- Gestion des animaux de compagnie
+- Fonctionnalités CRUD pour les personnes et les animaux
+- Utilisation de TypeORM pour la gestion de la base de données
 
-# watch mode
-$ npm run start:dev
+## Technologies utilisées
 
-# production mode
-$ npm run start:prod
-```
+- [NestJS](https://nestjs.com/) - Framework Node.js
+- [TypeORM](https://typeorm.io/) - ORM pour TypeScript et JavaScript
+- [MySQL](https://www.mysql.com/) - Système de gestion de base de données relationnelle
 
-## Run tests
+## Prérequis
 
-```bash
-# unit tests
-$ npm run test
+- [Node.js](https://nodejs.org/) (version 14 ou supérieure)
+- [MySQL](https://www.mysql.com/) installé et en cours d'exécution
+- [Git](https://git-scm.com/) pour cloner le dépôt
 
-# e2e tests
-$ npm run test:e2e
+## Installation
 
-# test coverage
-$ npm run test:cov
-```
+1. **Clonez le dépôt :**
+   ```bash
+   git clone https://github.com/oussama-dghoughi/Pet-_Management_-API.git
+   cd Pet-_Management_-API
+2. Installez les dépendances :
+   -> npm install
+3. Configurez la base de données :
+      . Créez une base de données MySQL pour l'application.
+      . Modifiez le fichier ormconfig.json (ou app.module.ts selon votre configuration) pour ajouter vos informations de connexion MySQL.
+4. Configuration de l'environnement
+  Assurez-vous de créer un fichier .env à la racine de votre projet pour stocker vos variables d'environnement.
+  Voici un exemple de contenu :
+    DATABASE_HOST=localhost
+  DATABASE_PORT=3306
+  DATABASE_USERNAME=your_username
+  DATABASE_PASSWORD=your_password
+  DATABASE_NAME=your_database_name
+5. Utilisation
+  Démarrer le serveur :
+      ->En mode développement :
+        bash:
+                npm run dev
+      ->En mode production :
+        :bash
+              npm run start
+6. Accéder à l'API :
+        L'API sera disponible à l'adresse http://localhost:3000.
 
-## Resources
+******Endpoints API******
+      ***Personnes****
+GET /people - Récupérer tous les propriétaires
+GET /people/:id - Récupérer un propriétaire par ID
+POST /people - Créer un nouveau propriétaire
+PUT /people/:id - Mettre à jour un propriétaire existant
+DELETE /people/:id - Supprimer un propriétaire
 
-Check out a few resources that may come in handy when working with NestJS:
+    ***Animaux**
+GET /animal - Récupérer tous les animaux
+GET /animal/:id - Récupérer un animal par ID
+POST /animal - Créer un nouvel animal
+PUT /animal/:id - Mettre à jour un animal existant
+DELETE /animal/:id - Supprimer un animal
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
